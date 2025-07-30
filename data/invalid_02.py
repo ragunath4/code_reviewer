@@ -1,4 +1,2 @@
-def bar():
-
-
-print("indentation error")
+def test():
+pass

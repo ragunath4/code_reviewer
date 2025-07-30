@@ -1,2 +1,2 @@
-x = 1
-print(x)
+if True
+    print('yes')

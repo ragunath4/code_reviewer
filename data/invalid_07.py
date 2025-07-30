@@ -1,2 +1,1 @@
-def f(a, ):
-    return a
+data = [1, 2, 3

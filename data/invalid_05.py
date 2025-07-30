@@ -1,4 +1,1 @@
-if True:
-    print("ok")
-else
-print("bad")
+x = 5 6

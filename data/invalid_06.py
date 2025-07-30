@@ -1,1 +1,1 @@
-print("hello"
+1name = 5

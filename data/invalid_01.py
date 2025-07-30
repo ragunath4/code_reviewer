@@ -1,4 +1,2 @@
-def foo()
-
-
-print("missing colon")
+def test()
+    pass

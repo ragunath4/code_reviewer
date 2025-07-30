@@ -1,1 +1,1 @@
-s = "unterminated string
+print('hello)

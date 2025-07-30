@@ -1,1 +1,4 @@
-lst = list(map(lambda x: x+1, [1, 2, 3]))
+import numpy as np
+
+def matrix_multiply(a, b):
+    return np.dot(a, b)

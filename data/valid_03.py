@@ -1,3 +1,6 @@
-class Person:
-    def __init__(self, name):
-        self.name = name
+if x > 0:
+    print('positive')
+elif x < 0:
+    print('negative')
+else:
+    print('zero')
