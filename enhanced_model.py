@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 from torch_geometric.nn import GCNConv, global_mean_pool, global_max_pool
-from torch_geometric.nn import BatchNorm1d, Dropout
+from torch.nn import BatchNorm1d, Dropout
 
 class EnhancedSyntaxGCN(torch.nn.Module):
     def __init__(self, num_node_types, hidden_dim=64, num_layers=3, dropout=0.3):

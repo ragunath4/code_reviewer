@@ -4,8 +4,6 @@ from parser_util import parse_code
 
 # Build a mapping from node type to index for one-hot or index encoding
 NODE_TYPE_TO_IDX = {}
-
-
 def build_node_type_dict(root):
     global NODE_TYPE_TO_IDX
 

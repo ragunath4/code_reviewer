@@ -82,7 +82,12 @@ prediction = model(graph)  # GCN processes graph
 - `tree-sitter-python/` (Tree-sitter parser)
 
 ### **2. Graph Builder** (`graph_builder.py`)
-**Purpose**: Convert AST into graph representation
+
+
+### **3. Model Architectures**
+
+#### **Original Model** (`model.py`)
+```python**Purpose**: Convert AST into graph representation
 **Key Functions**:
 - `ast_to_graph(code)`: Main conversion function
 - `build_node_type_dict(root)`: Builds node type mapping
@@ -92,11 +97,6 @@ prediction = model(graph)  # GCN processes graph
 - Node type (function, class, variable, etc.)
 - Depth in AST tree
 - Number of children
-
-### **3. Model Architectures**
-
-#### **Original Model** (`model.py`)
-```python
 class SyntaxGCN:
     - 2 GCN layers
     - Global mean pooling

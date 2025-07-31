@@ -19,7 +19,7 @@ def load_dataset():
     labels = []
     for fname in os.listdir(DATA_DIR):
         if not fname.endswith('.py'):
-            continue
+            continue    
         with open(os.path.join(DATA_DIR, fname), 'r', encoding='utf-8') as f:
             code = f.read()
         root = parse_code(code)

@@ -1,0 +1,24 @@
+{
+  "has_syntax_error": false,
+  "confidence": 0.8,
+  "error_type": "valid_syntax",
+  "message": "Code is syntactically correct (parser validated)",
+  "details": "Model confidence: 80.00%, Prediction: Invalid",
+  "severity": "none",
+  "code_length": 32,
+  "lines_of_code": 3,
+  "analysis_method": "GCN Only",
+  "error_info": {
+    "description": "Code is syntactically correct",
+    "examples": [
+      "def func(): pass",
+      "x = 1 + 2"
+    ],
+    "severity": "none"
+  },
+  "recommendations": [
+    "Code appears to be syntactically correct",
+    "Consider running additional linting tools",
+    "Test the code execution to verify functionality"
+  ]
+}

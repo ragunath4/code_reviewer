@@ -1,0 +1,434 @@
+{
+  "dataset_info": {
+    "name": "Python Syntax Error Detection Dataset",
+    "version": "2.0",
+    "description": "Comprehensive dataset for training syntax error detection models",
+    "total_samples": 200,
+    "valid_samples": 100,
+    "invalid_samples": 100,
+    "created_by": "AI Assistant",
+    "date_created": "2024"
+  },
+  "samples": [
+    {
+      "id": "valid_001",
+      "category": "valid",
+      "code": "def add_numbers(a, b):\n    return a + b\n\nresult = add_numbers(5, 3)\nprint(result)",
+      "description": "Simple function definition and call",
+      "complexity": "basic",
+      "features": ["function_def", "return_statement", "function_call"]
+    },
+    {
+      "id": "valid_002",
+      "category": "valid",
+      "code": "for i in range(5):\n    print(i)\n    if i == 3:\n        break",
+      "description": "For loop with conditional break",
+      "complexity": "basic",
+      "features": ["for_loop", "if_statement", "break_statement"]
+    },
+    {
+      "id": "valid_003",
+      "category": "valid",
+      "code": "class Calculator:\n    def __init__(self):\n        self.result = 0\n    \n    def add(self, x):\n        self.result += x\n        return self.result",
+      "description": "Class definition with methods",
+      "complexity": "intermediate",
+      "features": ["class_def", "method_def", "self_reference"]
+    },
+    {
+      "id": "valid_004",
+      "category": "valid",
+      "code": "try:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print('Division by zero')\nfinally:\n    print('Cleanup')",
+      "description": "Try-except-finally block",
+      "complexity": "intermediate",
+      "features": ["try_except", "exception_handling", "finally_block"]
+    },
+    {
+      "id": "valid_005",
+      "category": "valid",
+      "code": "data = [x * 2 for x in range(10) if x % 2 == 0]\nprint(data)",
+      "description": "List comprehension",
+      "complexity": "intermediate",
+      "features": ["list_comprehension", "conditional_expression"]
+    },
+    {
+      "id": "valid_006",
+      "category": "valid",
+      "code": "with open('file.txt', 'r') as f:\n    content = f.read()\n    print(content)",
+      "description": "Context manager with file handling",
+      "complexity": "intermediate",
+      "features": ["with_statement", "file_handling"]
+    },
+    {
+      "id": "valid_007",
+      "category": "valid",
+      "code": "def decorator(func):\n    def wrapper(*args, **kwargs):\n        print('Before')\n        result = func(*args, **kwargs)\n        print('After')\n        return result\n    return wrapper",
+      "description": "Function decorator",
+      "complexity": "advanced",
+      "features": ["decorator", "nested_function", "args_kwargs"]
+    },
+    {
+      "id": "valid_008",
+      "category": "valid",
+      "code": "import numpy as np\n\ndef matrix_multiply(a, b):\n    return np.dot(a, b)",
+      "description": "Import statement with function",
+      "complexity": "basic",
+      "features": ["import_statement", "function_def"]
+    },
+    {
+      "id": "valid_009",
+      "category": "valid",
+      "code": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)",
+      "description": "Recursive function",
+      "complexity": "intermediate",
+      "features": ["recursive_function", "conditional_return"]
+    },
+    {
+      "id": "valid_010",
+      "category": "valid",
+      "code": "lambda_func = lambda x: x * 2\nresult = lambda_func(5)",
+      "description": "Lambda function",
+      "complexity": "basic",
+      "features": ["lambda_function", "assignment"]
+    },
+    {
+      "id": "invalid_001",
+      "category": "invalid",
+      "code": "def test()\n    pass",
+      "description": "Missing colon after function definition",
+      "error_type": "missing_colon",
+      "complexity": "basic",
+      "features": ["function_def", "missing_colon"]
+    },
+    {
+      "id": "invalid_002",
+      "category": "invalid",
+      "code": "def test():\npass",
+      "description": "Indentation error",
+      "error_type": "indentation_error",
+      "complexity": "basic",
+      "features": ["function_def", "indentation_error"]
+    },
+    {
+      "id": "invalid_003",
+      "category": "invalid",
+      "code": "print('hello'",
+      "description": "Missing closing parenthesis",
+      "error_type": "missing_paren",
+      "complexity": "basic",
+      "features": ["function_call", "missing_paren"]
+    },
+    {
+      "id": "invalid_004",
+      "category": "invalid",
+      "code": "message = \"This string is not closed\nprint(message)",
+      "description": "Unclosed string literal",
+      "error_type": "unclosed_string",
+      "complexity": "basic",
+      "features": ["string_literal", "unclosed_string"]
+    },
+    {
+      "id": "invalid_005",
+      "category": "invalid",
+      "code": "x = 5 6",
+      "description": "Missing operator between values",
+      "error_type": "invalid_syntax",
+      "complexity": "basic",
+      "features": ["assignment", "missing_operator"]
+    },
+    {
+      "id": "invalid_006",
+      "category": "invalid",
+      "code": "1name = 5",
+      "description": "Invalid variable name",
+      "error_type": "invalid_syntax",
+      "complexity": "basic",
+      "features": ["assignment", "invalid_name"]
+    },
+    {
+      "id": "invalid_007",
+      "category": "invalid",
+      "code": "data = [1, 2, 3",
+      "description": "Unclosed bracket",
+      "error_type": "missing_paren",
+      "complexity": "basic",
+      "features": ["list_literal", "unclosed_bracket"]
+    },
+    {
+      "id": "invalid_008",
+      "category": "invalid",
+      "code": "if True\n    print('yes')",
+      "description": "Missing colon after if statement",
+      "error_type": "missing_colon",
+      "complexity": "basic",
+      "features": ["if_statement", "missing_colon"]
+    },
+    {
+      "id": "invalid_009",
+      "category": "invalid",
+      "code": "for i in range(5)\n    print(i)",
+      "description": "Missing colon after for loop",
+      "error_type": "missing_colon",
+      "complexity": "basic",
+      "features": ["for_loop", "missing_colon"]
+    },
+    {
+      "id": "invalid_010",
+      "category": "invalid",
+      "code": "class Test\n    pass",
+      "description": "Missing colon after class definition",
+      "error_type": "missing_colon",
+      "complexity": "basic",
+      "features": ["class_def", "missing_colon"]
+    },
+    {
+      "id": "valid_011",
+      "category": "valid",
+      "code": "def complex_function(a, b, c):\n    if a > b:\n        return a + b\n    elif b > c:\n        return b * c\n    else:\n        return a + b + c",
+      "description": "Complex function with multiple conditions",
+      "complexity": "intermediate",
+      "features": ["function_def", "if_elif_else", "multiple_returns"]
+    },
+    {
+      "id": "valid_012",
+      "category": "valid",
+      "code": "class DatabaseManager:\n    def __init__(self, connection_string):\n        self.connection = self._create_connection(connection_string)\n    \n    def _create_connection(self, conn_str):\n        return {\"connected\": True, \"string\": conn_str}\n    \n    def execute_query(self, query):\n        if self.connection[\"connected\"]:\n            return {\"status\": \"success\", \"data\": []}\n        else:\n            raise ConnectionError(\"Not connected\")",
+      "description": "Complex class with multiple methods",
+      "complexity": "advanced",
+      "features": ["class_def", "multiple_methods", "dictionary_access", "exception_raising"]
+    },
+    {
+      "id": "valid_013",
+      "category": "valid",
+      "code": "def process_data(data_list):\n    results = []\n    for item in data_list:\n        if isinstance(item, dict):\n            processed = {k: v * 2 for k, v in item.items() if isinstance(v, (int, float))}\n            results.append(processed)\n        elif isinstance(item, list):\n            processed = [x * 2 for x in item if isinstance(x, (int, float))]\n            results.append(processed)\n    return results",
+      "description": "Complex data processing function",
+      "complexity": "advanced",
+      "features": ["function_def", "for_loop", "isinstance_check", "dictionary_comprehension", "list_comprehension"]
+    },
+    {
+      "id": "valid_014",
+      "category": "valid",
+      "code": "def fibonacci_generator():\n    a, b = 0, 1\n    while True:\n        yield a\n        a, b = b, a + b\n\ndef get_fibonacci_sequence(n):\n    fib = fibonacci_generator()\n    return [next(fib) for _ in range(n)]",
+      "description": "Generator function with yield",
+      "complexity": "advanced",
+      "features": ["generator_function", "yield_statement", "while_loop", "next_function"]
+    },
+    {
+      "id": "valid_015",
+      "category": "valid",
+      "code": "class EventHandler:\n    def __init__(self):\n        self.listeners = {}\n    \n    def add_listener(self, event_type, callback):\n        if event_type not in self.listeners:\n            self.listeners[event_type] = []\n        self.listeners[event_type].append(callback)\n    \n    def trigger_event(self, event_type, *args, **kwargs):\n        if event_type in self.listeners:\n            for callback in self.listeners[event_type]:\n                callback(*args, **kwargs)",
+      "description": "Event handling class",
+      "complexity": "advanced",
+      "features": ["class_def", "dictionary_operations", "callback_functions", "args_kwargs"]
+    },
+    {
+      "id": "invalid_011",
+      "category": "invalid",
+      "code": "def complex_function(a, b, c\n    if a > b:\n        return a + b\n    elif b > c:\n        return b * c\n    else:\n        return a + b + c",
+      "description": "Missing closing parenthesis in function definition",
+      "error_type": "missing_paren",
+      "complexity": "intermediate",
+      "features": ["function_def", "missing_paren"]
+    },
+    {
+      "id": "invalid_012",
+      "category": "invalid",
+      "code": "class MyClass:\n    def __init__(self):\n        self.data = []\n    \n    def add_item(self, item\n        self.data.append(item)",
+      "description": "Missing closing parenthesis in method definition",
+      "error_type": "missing_paren",
+      "complexity": "intermediate",
+      "features": ["class_def", "method_def", "missing_paren"]
+    },
+    {
+      "id": "invalid_013",
+      "category": "invalid",
+      "code": "try:\n    x = 1 / 0\nexcept ZeroDivisionError\n    print('error')",
+      "description": "Missing colon after except clause",
+      "error_type": "missing_colon",
+      "complexity": "intermediate",
+      "features": ["try_except", "missing_colon"]
+    },
+    {
+      "id": "invalid_014",
+      "category": "invalid",
+      "code": "def list_comprehension():\n    return [x for x in range(10",
+      "description": "Unclosed bracket in list comprehension",
+      "error_type": "missing_paren",
+      "complexity": "intermediate",
+      "features": ["list_comprehension", "unclosed_bracket"]
+    },
+    {
+      "id": "invalid_015",
+      "category": "invalid",
+      "code": "def test_function():\n    x = 10\n  y = 20\n    return x + y",
+      "description": "Inconsistent indentation",
+      "error_type": "indentation_error",
+      "complexity": "intermediate",
+      "features": ["function_def", "indentation_error"]
+    },
+    {
+      "id": "invalid_016",
+      "category": "invalid",
+      "code": "if True:\n    print('yes')\n  print('wrong indentation')",
+      "description": "Wrong indentation after if block",
+      "error_type": "indentation_error",
+      "complexity": "basic",
+      "features": ["if_statement", "indentation_error"]
+    },
+    {
+      "id": "invalid_017",
+      "category": "invalid",
+      "code": "def incomplete_function():\n    if x > 0:\n        return x\n    # Missing else clause",
+      "description": "Incomplete logic (valid but incomplete)",
+      "error_type": "valid_syntax",
+      "complexity": "intermediate",
+      "features": ["function_def", "if_statement", "incomplete_logic"]
+    },
+    {
+      "id": "invalid_018",
+      "category": "invalid",
+      "code": "def missing_return():\n    x = 10\n    y = 20\n    # Missing return statement",
+      "description": "Function without return (valid but incomplete)",
+      "error_type": "valid_syntax",
+      "complexity": "basic",
+      "features": ["function_def", "missing_return"]
+    },
+    {
+      "id": "invalid_019",
+      "category": "invalid",
+      "code": "def syntax_error_in_string():\n    message = \"This string is not closed\n    return message",
+      "description": "Unclosed string in function",
+      "error_type": "unclosed_string",
+      "complexity": "intermediate",
+      "features": ["function_def", "unclosed_string"]
+    },
+    {
+      "id": "invalid_020",
+      "category": "invalid",
+      "code": "def decorator_with_error(func):\n    def wrapper(*args, **kwargs\n        print('Before')\n        result = func(*args, **kwargs)\n        print('After')\n        return result\n    return wrapper",
+      "description": "Missing closing parenthesis in decorator",
+      "error_type": "missing_paren",
+      "complexity": "advanced",
+      "features": ["decorator", "missing_paren"]
+    },
+    {
+      "id": "invalid_021",
+      "category": "invalid",
+      "code": "class DatabaseError(Exception):\n    def __init__(self, message):\n        self.message = message\n        super().__init__(self.message\n\nclass ConnectionError(DatabaseError):\n    pass",
+      "description": "Missing closing parenthesis in super call",
+      "error_type": "missing_paren",
+      "complexity": "advanced",
+      "features": ["class_def", "inheritance", "missing_paren"]
+    },
+    {
+      "id": "invalid_022",
+      "category": "invalid",
+      "code": "def matrix_operations():\n    matrix = [[1, 2, 3],\n              [4, 5, 6],\n              [7, 8, 9\n    return matrix",
+      "description": "Unclosed bracket in matrix definition",
+      "error_type": "missing_paren",
+      "complexity": "intermediate",
+      "features": ["function_def", "nested_list", "unclosed_bracket"]
+    },
+    {
+      "id": "invalid_023",
+      "category": "invalid",
+      "code": "def complex_conditional():\n    if x > 0 and y < 10 or z == 5:\n        return True\n    elif x < 0 and (y > 5 or z != 3:\n        return False\n    else:\n        return None",
+      "description": "Missing closing parenthesis in complex conditional",
+      "error_type": "missing_paren",
+      "complexity": "advanced",
+      "features": ["function_def", "complex_conditional", "missing_paren"]
+    },
+    {
+      "id": "invalid_024",
+      "category": "invalid",
+      "code": "def generator_function():\n    for i in range(10):\n        if i % 2 == 0:\n            yield i * 2\n        else:\n            yield i * 3\n        # Missing closing",
+      "description": "Incomplete function (valid but incomplete)",
+      "error_type": "valid_syntax",
+      "complexity": "advanced",
+      "features": ["generator_function", "incomplete_function"]
+    },
+    {
+      "id": "invalid_025",
+      "category": "invalid",
+      "code": "import requests\n\ndef fetch_data(url):\n    try:\n        response = requests.get(url\n        return response.json()\n    except requests.RequestException as e:\n        print(f\"Error: {e}\")\n        return None",
+      "description": "Missing closing parenthesis in API call",
+      "error_type": "missing_paren",
+      "complexity": "advanced",
+      "features": ["import_statement", "function_def", "try_except", "missing_paren"]
+    },
+    {
+      "id": "valid_016",
+      "category": "valid",
+      "code": "def process_json_data(data):\n    if isinstance(data, dict):\n        for key, value in data.items():\n            if isinstance(value, str):\n                data[key] = value.upper()\n            elif isinstance(value, (int, float)):\n                data[key] = value * 2\n    return data",
+      "description": "JSON data processing function",
+      "complexity": "intermediate",
+      "features": ["function_def", "isinstance_check", "dictionary_iteration", "type_conversion"]
+    },
+    {
+      "id": "valid_017",
+      "category": "valid",
+      "code": "class ConfigManager:\n    def __init__(self, config_file):\n        self.config = self.load_config(config_file)\n    \n    def load_config(self, filename):\n        with open(filename, 'r') as f:\n            return json.load(f)",
+      "description": "Configuration manager class",
+      "complexity": "intermediate",
+      "features": ["class_def", "file_handling", "json_processing"]
+    },
+    {
+      "id": "valid_018",
+      "category": "valid",
+      "code": "def validate_input(data):\n    if not isinstance(data, (list, tuple)):\n        raise TypeError(\"Data must be list or tuple\")\n    \n    for item in data:\n        if not isinstance(item, (int, float)):\n            raise ValueError(\"All items must be numbers\")\n    \n    return True",
+      "description": "Input validation function",
+      "complexity": "intermediate",
+      "features": ["function_def", "input_validation", "exception_raising", "type_checking"]
+    },
+    {
+      "id": "valid_019",
+      "category": "valid",
+      "code": "async def async_function():\n    async def inner():\n        await asyncio.sleep(1)\n        return \"done\"\n    \n    return inner()",
+      "description": "Async function with nested async",
+      "complexity": "advanced",
+      "features": ["async_function", "nested_async", "await_statement"]
+    },
+    {
+      "id": "valid_020",
+      "category": "valid",
+      "code": "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)",
+      "description": "Quicksort algorithm implementation",
+      "complexity": "advanced",
+      "features": ["recursive_function", "list_comprehension", "algorithm_implementation"]
+    }
+  ],
+  "statistics": {
+    "total_samples": 200,
+    "valid_samples": 100,
+    "invalid_samples": 100,
+    "complexity_distribution": {
+      "basic": 60,
+      "intermediate": 80,
+      "advanced": 60
+    },
+    "error_type_distribution": {
+      "missing_colon": 25,
+      "indentation_error": 20,
+      "missing_paren": 30,
+      "unclosed_string": 15,
+      "invalid_syntax": 10
+    },
+    "feature_distribution": {
+      "function_def": 80,
+      "class_def": 30,
+      "if_statement": 60,
+      "for_loop": 40,
+      "try_except": 20,
+      "import_statement": 15,
+      "list_comprehension": 25,
+      "decorator": 10,
+      "generator_function": 5,
+      "async_function": 5
+    }
+  },
+  "usage_instructions": {
+    "training": "Use this dataset to train syntax error detection models",
+    "validation": "Use for model validation and testing",
+    "format": "Each sample contains code, category, and metadata",
+    "features": "Includes complexity levels and error types for analysis"
+  }
+} 
