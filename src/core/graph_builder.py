@@ -1,6 +1,6 @@
 import torch
 from torch_geometric.data import Data
-from parser_util import parse_code
+from .parser_util import parse_code
 
 # Build a mapping from node type to index for one-hot or index encoding
 NODE_TYPE_TO_IDX = {}

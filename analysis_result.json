@@ -1,12 +1,12 @@
 {
   "has_syntax_error": false,
-  "confidence": 0.8,
+  "confidence": 0.7,
   "error_type": "valid_syntax",
   "message": "Code is syntactically correct (parser validated)",
-  "details": "Model confidence: 80.00%, Prediction: Invalid",
+  "details": "Model confidence: 70.00%, Prediction: Invalid",
   "severity": "none",
-  "code_length": 32,
-  "lines_of_code": 3,
+  "code_length": 89,
+  "lines_of_code": 6,
   "analysis_method": "GCN Only",
   "error_info": {
     "description": "Code is syntactically correct",
@@ -20,5 +20,36 @@
     "Code appears to be syntactically correct",
     "Consider running additional linting tools",
     "Test the code execution to verify functionality"
-  ]
+  ],
+  "ast_info": {
+    "ast_available": true,
+    "total_nodes": 51,
+    "node_types": {
+      "module": 1,
+      "if_statement": 1,
+      "if": 1,
+      "comparison_operator": 2,
+      "identifier": 5,
+      ">": 1,
+      "integer": 2,
+      ":": 3,
+      "block": 3,
+      "expression_statement": 3,
+      "call": 3,
+      "argument_list": 3,
+      "(": 3,
+      "string": 3,
+      "string_start": 3,
+      "string_content": 3,
+      "string_end": 3,
+      ")": 3,
+      "elif_clause": 1,
+      "elif": 1,
+      "<": 1,
+      "else_clause": 1,
+      "else": 1
+    },
+    "ast_structure": "\u251c\u2500 module ('if x > 0:\n    print(...')\n  \u2514\u2500 if_statement ('if x > 0:\n    print(...')\n    \u251c\u2500 if ('if')\n    \u251c\u2500 comparison_operator ('x > 0')\n      \u251c\u2500 identifier ('x')\n      \u251c\u2500 > ('>')\n      \u2514\u2500 integer ('0')\n    \u251c\u2500 : (':')\n    \u251c\u2500 block ('print('positive')')\n      \u2514\u2500 expression_statement ('print('positive')')\n        \u2514\u2500 call ('print('positive')')\n          \u251c\u2500 identifier ('print')\n          \u2514\u2500 argument_list ('('positive')')\n            \u251c\u2500 ( ('(')\n            \u251c\u2500 string (''positive'')\n              \u251c\u2500 string_start (''')\n              \u251c\u2500 string_content ('positive')\n              \u2514\u2500 string_end (''')\n            \u2514\u2500 ) (')')\n    \u251c\u2500 elif_clause ('elif x < 0:\n    prin...')\n      \u251c\u2500 elif ('elif')\n      \u251c\u2500 comparison_operator ('x < 0')\n        \u251c\u2500 identifier ('x')\n        \u251c\u2500 < ('<')\n        \u2514\u2500 integer ('0')\n      \u251c\u2500 : (':')\n      \u2514\u2500 block ('print('negative')')\n        \u2514\u2500 expression_statement ('print('negative')')\n          \u2514\u2500 call ('print('negative')')\n            \u251c\u2500 identifier ('print')\n            \u2514\u2500 argument_list ('('negative')')\n              \u251c\u2500 ( ('(')\n              \u251c\u2500 string (''negative'')\n                \u251c\u2500 string_start (''')\n                \u251c\u2500 string_content ('negative')\n                \u2514\u2500 string_end (''')\n              \u2514\u2500 ) (')')\n    \u2514\u2500 else_clause ('else:\n    print('zer...')\n      \u251c\u2500 else ('else')\n      \u251c\u2500 : (':')\n      \u2514\u2500 block ('print('zero')')\n        \u2514\u2500 expression_statement ('print('zero')')\n          \u2514\u2500 call ('print('zero')')\n            \u251c\u2500 identifier ('print')\n            \u2514\u2500 argument_list ('('zero')')\n              \u251c\u2500 ( ('(')\n              \u251c\u2500 string (''zero'')\n                \u251c\u2500 string_start (''')\n                \u251c\u2500 string_content ('zero')\n                \u2514\u2500 string_end (''')\n              \u2514\u2500 ) (')')\n",
+    "unique_node_types": 23
+  }
 }
