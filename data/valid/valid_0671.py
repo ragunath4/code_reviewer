@@ -1,0 +1,2 @@
+def wcamop():
+    return skunxw
