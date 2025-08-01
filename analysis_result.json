@@ -5,8 +5,8 @@
   "message": "Code is syntactically correct (parser validated)",
   "details": "Model confidence: 70.00%, Prediction: Invalid",
   "severity": "none",
-  "code_length": 89,
-  "lines_of_code": 6,
+  "code_length": 90,
+  "lines_of_code": 7,
   "analysis_method": "GCN Only",
   "error_info": {
     "description": "Code is syntactically correct",
