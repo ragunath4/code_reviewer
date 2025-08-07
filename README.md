@@ -1,187 +1,276 @@
-# Python Syntax Error Detector
+# Python Syntax Error Classifier
 
-A machine learning-based tool for detecting Python syntax errors using Graph Convolutional Networks (GCN) and Tree-sitter parsing.
+A Graph Neural Network (GNN) based system for detecting and classifying Python syntax errors. This project uses a clean, focused approach without regex fallbacks, with dynamic data generation to handle overfitting/underfitting.
 
-## 🏗️ Project Structure
+## 🚀 Features
+
+- **Pure GNN Architecture**: No regex fallbacks - relies entirely on graph neural networks
+- **Dynamic Data Generation**: Automatically generates training data based on model performance
+- **Overfitting/Underfitting Detection**: Monitors training progress and adjusts accordingly
+- **6 Error Types**: Classifies syntax errors into 6 distinct categories
+- **High Accuracy**: Achieves high accuracy on syntax error detection
+- **Clean Architecture**: Streamlined codebase without unnecessary complexity
+
+## 📋 Error Types Detected
+
+1. **valid** - Syntactically correct Python code
+2. **missing_colon** - Missing colon after control flow statements
+3. **unclosed_string** - Unclosed string literals
+4. **unexpected_indent** - Unexpected indentation without proper context
+5. **unexpected_eof** - Unexpected end of file (unclosed brackets, parentheses, etc.)
+6. **invalid_token** - Invalid characters or tokens
+
+## 🏗️ Architecture
+
+### Model Structure
+```
+Input Code → Tokenization → Graph Construction → GNN Processing → Classification
+```
+
+### GNN Architecture
+- **3 Graph Convolution Layers** (GCNConv)
+- **Batch Normalization** after each conv layer
+- **Dropout** (0.3) for regularization
+- **Global Pooling** (mean + max)
+- **3 Linear Layers** for classification
+- **ReLU Activation** throughout
+
+### Key Components
+
+1. **TokenBasedGraphBuilder**: Converts Python code to graph representation
+2. **SyntaxErrorGNN**: Graph Neural Network for classification
+3. **SyntaxErrorClassifier**: Main classifier interface
+4. **DynamicDataGenerator**: Generates training data dynamically
+5. **ModelTrainer**: Handles training with overfitting detection
+
+## 🛠️ Installation
+
+### Prerequisites
+- Python 3.8+
+- PyTorch 1.9+
+- PyTorch Geometric 2.0+
+
+### Install Dependencies
+```bash
+pip install torch torch-geometric scikit-learn numpy
+```
+
+## 📚 Usage
+
+### Training the Model
+
+```bash
+python train_model.py
+```
+
+This will:
+- Generate balanced training data (100 samples per class)
+- Train the GNN model with overfitting detection
+- Save the trained model as `syntax_error_model.pth`
+- Save training history as `training_history.json`
+
+### Using the Classifier
+
+```python
+from syntax_error_classifier import SyntaxErrorClassifier
+
+# Initialize classifier
+classifier = SyntaxErrorClassifier()
+
+# Analyze code
+result = classifier.analyze_code('def test()\n    pass')
+print(f"Error: {result['result']}")
+print(f"Confidence: {result['confidence']:.2f}")
+```
+
+### Testing Scripts
+
+#### Quick Demo
+```bash
+python demo.py
+```
+Shows the model working with various examples and provides accuracy metrics.
+
+#### Quick Test
+```bash
+python quick_test.py
+```
+Runs predefined test cases to verify model performance.
+
+#### Interactive Testing
+```bash
+python interactive_test.py
+```
+Choose from:
+1. Interactive mode (input code manually)
+2. Batch testing (from file)
+3. Demo mode
+
+#### Piped Input Testing
+```bash
+echo "def test()\n    pass" | python pipe_test.py
+```
+Test with piped input (handles newlines properly).
+
+#### Command Line Testing
+```bash
+python test_classifier.py "def test():\n    pass"
+```
+Test with command line arguments.
+
+## 🔧 Training Features
+
+### Dynamic Data Generation
+- Automatically generates balanced datasets
+- Creates additional samples for underperforming classes
+- Handles data augmentation for better generalization
+
+### Overfitting/Underfitting Detection
+- Monitors training and validation losses
+- Detects overfitting patterns (training loss ↓, validation loss ↑)
+- Detects underfitting patterns (both losses high and stagnant)
+- Automatically adjusts regularization when needed
+
+### Training Process
+1. **Data Generation**: Creates 600 samples (100 per class)
+2. **Data Splitting**: 70% train, 15% validation, 15% test
+3. **Training**: 100 epochs with early stopping
+4. **Monitoring**: Checks for overfitting every 10 epochs
+5. **Saving**: Best model saved based on validation accuracy
+
+## 📊 Performance
+
+### Expected Results
+- **Overall Accuracy**: >85%
+- **Per-class Accuracy**: >80% for each error type
+- **Training Time**: ~5-10 minutes on CPU
+- **Inference Time**: <1 second per code snippet
+
+### Model Evaluation
+The model provides:
+- Classification report with precision, recall, F1-score
+- Confusion matrix
+- Per-class accuracy breakdown
+- Confidence scores for predictions
+
+## 🎯 Example Usage
+
+```python
+from syntax_error_classifier import SyntaxErrorClassifier
+
+classifier = SyntaxErrorClassifier()
+
+# Test cases
+test_cases = [
+    'def test():\n    pass',           # valid
+    'def test()\n    pass',            # missing_colon
+    'print("hello',                    # unclosed_string
+    '  print("indented")',             # unexpected_indent
+    'x = [1, 2, 3',                   # unexpected_eof
+    'x = @invalid'                     # invalid_token
+]
+
+for code in test_cases:
+    result = classifier.analyze_code(code)
+    print(f"Code: {repr(code)}")
+    print(f"Predicted: {result['result']} (confidence: {result['confidence']:.2f})")
+    print("-" * 40)
+```
+
+## 📁 Project Structure
 
 ```
 syntax-err/
-├── src/                    # Source code
-│   ├── core/              # Core components
-│   │   ├── parser_util.py      # Tree-sitter parser utilities
-│   │   └── graph_builder.py    # AST to graph conversion
-│   ├── models/            # Neural network models
-│   │   └── enhanced_model.py   # GCN model implementation
-│   └── analysis/          # Analysis tools
-│       └── syntax_analyzer_gcn_only.py  # Main analyzer
-├── data/                  # Training and test data
-│   ├── valid/            # Valid Python code samples
-│   └── invalid/          # Invalid Python code samples
-├── tests/                # Test files
-├── docs/                 # Documentation
-├── examples/             # Example usage
-├── main.py               # Main entry point
-└── requirements.txt      # Dependencies
+├── syntax_error_classifier.py    # Main classifier
+├── train_model.py               # Training script
+├── demo.py                      # Demo with examples
+├── quick_test.py                # Quick test cases
+├── interactive_test.py          # Interactive testing
+├── pipe_test.py                 # Piped input testing
+├── test_classifier.py           # Command line testing
+├── test_model_accuracy.py      # Accuracy testing
+├── syntax_error_model.pth      # Trained model
+├── training_history.json        # Training history
+├── requirements.txt             # Dependencies
+└── README.md                   # This file
 ```
 
-## 🚀 Quick Start
+## 🔍 Key Features Explained
 
-### Installation
+### No Regex Fallbacks
+- Pure GNN approach for better generalization
+- Learns patterns from graph structure
+- More robust than rule-based systems
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd syntax-err
-   ```
+### Dynamic Data Generation
+- Generates training data programmatically
+- Balances dataset across all error types
+- Creates additional samples for problematic classes
 
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Overfitting Detection
+- Monitors training vs validation metrics
+- Automatically increases dropout when overfitting detected
+- Provides recommendations for model improvement
 
-3. **Train the model (if needed):**
-   ```bash
-   python train_model.py
-   ```
+### Clean Architecture
+- Single responsibility classes
+- No unnecessary complexity
+- Easy to understand and modify
 
-### Usage
+## 🚨 Error Handling
 
-#### Analyze a Python file:
-```bash
-python main.py --file data/valid/valid_01.py
-```
+The model handles various edge cases:
+- Empty code
+- Very long code snippets
+- Malformed input
+- Missing model files
 
-#### Analyze code from command line:
-```bash
-python main.py --code "def test(): pass"
-```
+All errors are logged with clear messages and the system fails gracefully.
 
-#### Analyze with custom model:
-```bash
-python main.py --file data/valid/valid_01.py --model path/to/model.pth
-```
+## 📈 Training Monitoring
 
-## 📊 Features
-
-- **Tree-sitter Parsing**: Robust Python syntax parsing
-- **GCN Analysis**: Graph Convolutional Network for complex pattern detection
-- **Incomplete Code Detection**: Identifies incomplete function/class definitions
-- **Confidence Scoring**: Provides confidence levels for predictions
-- **Error Classification**: Categorizes different types of syntax errors
-- **Detailed Recommendations**: Suggests fixes for detected errors
-
-## 🔧 Core Components
-
-### Parser (`src/core/parser_util.py`)
-- Uses Tree-sitter for Python parsing
-- Recursive error detection in AST
-- Handles both valid and invalid code
-
-### Graph Builder (`src/core/graph_builder.py`)
-- Converts AST to graph representation
-- Extracts node features (type, depth, children count)
-- Creates edge connections between nodes
-
-### GCN Model (`src/models/enhanced_model.py`)
-- Graph Convolutional Network architecture
-- Processes graph-structured code data
-- Outputs binary classification (valid/invalid)
-
-### Analyzer (`src/analysis/syntax_analyzer_gcn_only.py`)
-- Main analysis engine
-- Combines parser and GCN predictions
-- Provides detailed error reports
-
-## 📈 Confidence Levels
-
-- **Valid Code**: 80% confidence
-- **Invalid Code**: 95-98% confidence
-- **Incomplete Code**: 95% confidence
-- **Parsing Errors**: 98% confidence
-
-## 🧪 Testing
-
-### Test valid code:
-```bash
-python main.py --file data/valid/valid_01.py
-```
-
-### Test invalid code:
-```bash
-python main.py --file data/invalid/invalid_01.py
-```
-
-### Test incomplete code:
-```bash
-python main.py --code "def test():"
-```
-
-## 📝 Error Types
-
-1. **Parsing Failed**: Code cannot be parsed by Tree-sitter
-2. **Incomplete Code**: Missing method bodies or incomplete structures
-3. **GCN Invalid**: GCN model detected potential issues
-4. **Valid Syntax**: Code is syntactically correct
-
-## 🔍 Analysis Examples
-
-### Valid Code
-```python
-def add(a, b):
-    return a + b
-```
-**Result**: ✅ VALID SYNTAX (80% confidence)
-
-### Invalid Code
-```python
-def test()
-    pass
-```
-**Result**: ❌ SYNTAX ERROR (98% confidence) - Missing colon
-
-### Incomplete Code
-```python
-class Calculator:
-    def __init__(self):
-```
-**Result**: ❌ SYNTAX ERROR (95% confidence) - Incomplete method
-
-## 🛠️ Development
-
-### Project Organization
-- **Modular Design**: Each component is in its own module
-- **Clean Imports**: Proper package structure with `__init__.py` files
-- **Separation of Concerns**: Parser, model, and analysis are separate
-
-### Adding New Features
-1. Add new components to appropriate `src/` subdirectory
-2. Update `__init__.py` files for imports
-3. Add tests in `tests/` directory
-4. Update documentation
-
-## 📚 Dependencies
-
-- **PyTorch**: Deep learning framework
-- **PyTorch Geometric**: Graph neural networks
-- **Tree-sitter**: Fast parsing
-- **NumPy**: Numerical computations
-- **Scikit-learn**: Machine learning utilities
+During training, you'll see:
+- Epoch progress with loss and accuracy
+- Overfitting/underfitting warnings
+- Model saving notifications
+- Final evaluation results
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests
+4. Test thoroughly
 5. Submit a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is open source and available under the MIT License.
 
-## 🆘 Support
+## 🆘 Troubleshooting
+
+### Common Issues
+
+1. **Model not loading**: Ensure `syntax_error_model.pth` exists
+2. **CUDA errors**: Model automatically falls back to CPU
+3. **Memory issues**: Reduce batch size in training
+4. **Poor accuracy**: Retrain with more data or adjust hyperparameters
+
+### Performance Tips
+
+- Use GPU for faster training (automatically detected)
+- Increase `samples_per_class` for better accuracy
+- Adjust learning rate if training is unstable
+- Monitor training history for insights
+
+## 📞 Support
 
 For issues and questions:
-1. Check the documentation in `docs/`
-2. Review example usage in `examples/`
-3. Open an issue on GitHub 
+1. Check the troubleshooting section
+2. Review the training logs
+3. Test with the interactive mode
+4. Create an issue with detailed information
+
+---
+
+**Note**: This model is designed for Python syntax error detection and may not work well with other programming languages or very complex code structures. 

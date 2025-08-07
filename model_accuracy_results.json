@@ -1,0 +1,588 @@
+{
+  "valid": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "total": 17,
+    "predictions": [
+      {
+        "code": "def test():\n    pass",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.36759790778160095,
+        "correct": false
+      },
+      {
+        "code": "x = 5",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.357965886592865,
+        "correct": false
+      },
+      {
+        "code": "print(\"hello\")",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.539071364402771,
+        "correct": false
+      },
+      {
+        "code": "if x > 5:\n    print(x)",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.3592637777328491,
+        "correct": false
+      },
+      {
+        "code": "for i in range(10):\n    print(i)",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.3576170802116394,
+        "correct": false
+      },
+      {
+        "code": "class MyClass:\n    def __init__(self):\n        pass",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.36719515919685364,
+        "correct": false
+      },
+      {
+        "code": "try:\n    x = 1/0\nexcept:\n    pass",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.3781038820743561,
+        "correct": false
+      },
+      {
+        "code": "with open(\"file.txt\") as f:\n    pass",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.5632937574386596,
+        "correct": false
+      },
+      {
+        "code": "def func(a, b):\n    return a + b",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.367542028427124,
+        "correct": false
+      },
+      {
+        "code": "x = [1, 2, 3]",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.36313101649284363,
+        "correct": false
+      },
+      {
+        "code": "y = {\"key\": \"value\"}",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.5332861971855164,
+        "correct": false
+      },
+      {
+        "code": "import os",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.35748717188835144,
+        "correct": false
+      },
+      {
+        "code": "from pathlib import Path",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.36308491230010986,
+        "correct": false
+      },
+      {
+        "code": "lambda x: x * 2",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.3714272081851959,
+        "correct": false
+      },
+      {
+        "code": "x = [i for i in range(5)]",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.3607710599899292,
+        "correct": false
+      },
+      {
+        "code": "assert x > 0",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.3522859513759613,
+        "correct": false
+      },
+      {
+        "code": "raise ValueError(\"error\")",
+        "expected": "valid",
+        "predicted": "unclosed_string",
+        "confidence": 0.5444454383850098,
+        "correct": false
+      }
+    ]
+  },
+  "missing_colon": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "total": 10,
+    "predictions": [
+      {
+        "code": "def test()\n    pass",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.3687458634376526,
+        "correct": false
+      },
+      {
+        "code": "if x > 5\n    print(x)",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.35582903027534485,
+        "correct": false
+      },
+      {
+        "code": "for i in range(10)\n    print(i)",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.3561449944972992,
+        "correct": false
+      },
+      {
+        "code": "while True\n    break",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.36345958709716797,
+        "correct": false
+      },
+      {
+        "code": "class MyClass\n    pass",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.36499297618865967,
+        "correct": false
+      },
+      {
+        "code": "try\n    pass\nexcept\n    pass",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.37993404269218445,
+        "correct": false
+      },
+      {
+        "code": "with open(\"file.txt\")\n    pass",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.5616666400432586,
+        "correct": false
+      },
+      {
+        "code": "elif x > 5\n    print(x)",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.3567766547203064,
+        "correct": false
+      },
+      {
+        "code": "else\n    print(\"else\")",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.5401060712337494,
+        "correct": false
+      },
+      {
+        "code": "finally\n    pass",
+        "expected": "missing_colon",
+        "predicted": "unclosed_string",
+        "confidence": 0.3785790801048279,
+        "correct": false
+      }
+    ]
+  },
+  "unclosed_string": {
+    "accuracy": 100.0,
+    "correct": 10,
+    "total": 10,
+    "predictions": [
+      {
+        "code": "print(\"hello",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5367661547660828,
+        "correct": true
+      },
+      {
+        "code": "x = \"unclosed string",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5518086683750153,
+        "correct": true
+      },
+      {
+        "code": "text = 'missing quote",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.539402289390564,
+        "correct": true
+      },
+      {
+        "code": "message = \"Hello world",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5299364459514618,
+        "correct": true
+      },
+      {
+        "code": "path = \"C:\\Users\\name",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.539402289390564,
+        "correct": true
+      },
+      {
+        "code": "data = \"{\"key\": \"value\"",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5229428839683533,
+        "correct": true
+      },
+      {
+        "code": "sql = \"SELECT * FROM table",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5490895342826844,
+        "correct": true
+      },
+      {
+        "code": "html = \"<div class=\"container\">",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5382501912117005,
+        "correct": true
+      },
+      {
+        "code": "json = '{\"name\": \"John\"",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5235849153995514,
+        "correct": true
+      },
+      {
+        "code": "url = \"https://example.com",
+        "expected": "unclosed_string",
+        "predicted": "unclosed_string",
+        "confidence": 0.5490895342826844,
+        "correct": true
+      }
+    ]
+  },
+  "unexpected_indent": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "total": 10,
+    "predictions": [
+      {
+        "code": "  print(\"indented\")",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.5322570335865021,
+        "correct": false
+      },
+      {
+        "code": "    x = 5",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.3452228307723999,
+        "correct": false
+      },
+      {
+        "code": "  def func():\n    pass",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.36198297142982483,
+        "correct": false
+      },
+      {
+        "code": "    if x > 5:\n      print(x)",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.3586307764053345,
+        "correct": false
+      },
+      {
+        "code": "  class Test:\n    pass",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.3618732690811157,
+        "correct": false
+      },
+      {
+        "code": "    try:\n      pass",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.3590640425682068,
+        "correct": false
+      },
+      {
+        "code": "  for i in range(5):\n    print(i)",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.35977599024772644,
+        "correct": false
+      },
+      {
+        "code": "    with open(\"file\"):\n      pass",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.5574184679985046,
+        "correct": false
+      },
+      {
+        "code": "  import os",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.3593563735485077,
+        "correct": false
+      },
+      {
+        "code": "    from pathlib import Path",
+        "expected": "unexpected_indent",
+        "predicted": "unclosed_string",
+        "confidence": 0.3569429814815521,
+        "correct": false
+      }
+    ]
+  },
+  "unexpected_eof": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "total": 15,
+    "predictions": [
+      {
+        "code": "x = [1, 2, 3",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.3633846938610077,
+        "correct": false
+      },
+      {
+        "code": "y = {\"key\": \"value\"",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.5323152375221253,
+        "correct": false
+      },
+      {
+        "code": "def func(a, b",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.3594670593738556,
+        "correct": false
+      },
+      {
+        "code": "if x > 5 and y < 10",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.36135295033454895,
+        "correct": false
+      },
+      {
+        "code": "for i in range(10",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.3551458716392517,
+        "correct": false
+      },
+      {
+        "code": "while True and x > 5",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.36530253291130066,
+        "correct": false
+      },
+      {
+        "code": "class MyClass(",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.36611491441726685,
+        "correct": false
+      },
+      {
+        "code": "try:",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.3728891909122467,
+        "correct": false
+      },
+      {
+        "code": "with open(\"file.txt\"",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.5452702474594117,
+        "correct": false
+      },
+      {
+        "code": "print(\"hello\"",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.5387584102153778,
+        "correct": false
+      },
+      {
+        "code": "x = (1 + 2",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.36198508739471436,
+        "correct": false
+      },
+      {
+        "code": "y = [i for i in range(5",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.35771799087524414,
+        "correct": false
+      },
+      {
+        "code": "z = {\"a\": 1, \"b\": 2",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.5331665408611298,
+        "correct": false
+      },
+      {
+        "code": "def test(a, b, c",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.3619028329849243,
+        "correct": false
+      },
+      {
+        "code": "if x > 5 or y < 10",
+        "expected": "unexpected_eof",
+        "predicted": "unclosed_string",
+        "confidence": 0.3623962700366974,
+        "correct": false
+      }
+    ]
+  },
+  "invalid_token": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "total": 15,
+    "predictions": [
+      {
+        "code": "x = @invalid",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.34752586483955383,
+        "correct": false
+      },
+      {
+        "code": "y = #comment",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.35275137424468994,
+        "correct": false
+      },
+      {
+        "code": "z = $symbol",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.3427548408508301,
+        "correct": false
+      },
+      {
+        "code": "a = &operator",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.37372472882270813,
+        "correct": false
+      },
+      {
+        "code": "b = ^xor",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.34551823139190674,
+        "correct": false
+      },
+      {
+        "code": "c = ~not",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.354781836271286,
+        "correct": false
+      },
+      {
+        "code": "d = `backtick",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.3522254228591919,
+        "correct": false
+      },
+      {
+        "code": "e = |pipe",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.35903671383857727,
+        "correct": false
+      },
+      {
+        "code": "f = \\backslash",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.35695233941078186,
+        "correct": false
+      },
+      {
+        "code": "g = /slash",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.36137816309928894,
+        "correct": false
+      },
+      {
+        "code": "h = *asterisk",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.37372472882270813,
+        "correct": false
+      },
+      {
+        "code": "i = %modulo",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.3642064332962036,
+        "correct": false
+      },
+      {
+        "code": "j = =equals",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.3642064332962036,
+        "correct": false
+      },
+      {
+        "code": "k = +plus",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.35903671383857727,
+        "correct": false
+      },
+      {
+        "code": "l = -minus",
+        "expected": "invalid_token",
+        "predicted": "unclosed_string",
+        "confidence": 0.36137816309928894,
+        "correct": false
+      }
+    ]
+  },
+  "overall": {
+    "accuracy": 12.987012987012985,
+    "correct": 10,
+    "total": 77
+  }
+}
