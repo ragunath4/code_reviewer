@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python Syntax Error Classifier
 
 A Graph Neural Network (GNN) based system for detecting and classifying Python syntax errors. This project uses a clean, focused approach without regex fallbacks, with dynamic data generation to handle overfitting/underfitting.
@@ -274,3 +275,6 @@ For issues and questions:
 ---
 
 **Note**: This model is designed for Python syntax error detection and may not work well with other programming languages or very complex code structures. 
+=======
+
+>>>>>>> 657610c6d451e7f416ad7f935c66451eecd9ccc3
