@@ -20,8 +20,7 @@ def parse_code(code: str):
         # parse the code and return the tree
         tree = parser.parse(bytes(code, 'utf8'))
         root = tree.root_node  # get the root node
-        if has_tree_error(root):  # check the error recursively
-            return None
+        # Always return the root, even if it has errors
         return root  # return the root node
     except Exception:
         return None
